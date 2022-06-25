@@ -15,6 +15,14 @@ body {
   background-position: center;
 }
 
+@media screen and (max-width:480px) {
+  body{
+    background-image: none!important;
+    background-color: #5fcde4;
+  }
+  
+}
+
 .flexContainer {
   display: flex;
   align-items: center;
