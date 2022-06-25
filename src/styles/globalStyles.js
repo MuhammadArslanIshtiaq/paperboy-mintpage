@@ -133,7 +133,7 @@ export const Mint = styled.div`
 
   @media screen and (max-width: 1024px) {
     width: 90%;
-    background-color: rgba(9, 132, 227, 0.9);
+    background-color: #48dbfb;
     border: 50px solid rgba(45, 52, 54, 1);
   }
 

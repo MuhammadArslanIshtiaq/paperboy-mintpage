@@ -19,8 +19,11 @@ body {
 
 @media screen and (max-width:1024px) {
   body{
-    background-image: none!important;
-    background-color: #5fcde4 !important;
+    background-image: url("./images/bg-left.png") , url("./images/bg-right.png") !important;;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: left, right;
+    background-color: #0184b6!important;
   }
   
 }
@@ -103,3 +106,32 @@ body {
 
 }
 
+.paper-boy {
+  width: 200px;
+  position: absolute;
+  top:10%;
+  z-index: 99;
+}
+
+@media (min-width:1024px) 
+   { 
+  
+  .paper-boy{
+    display: none;
+  }
+}
+@media screen and (max-width: 786px) { 
+
+  .paper-boy{
+    
+  position: absolute;
+    top:5%;
+  }
+}
+
+@media screen and (max-width: 480px) { 
+
+  .paper-boy{
+    display: none;
+  }
+}

@@ -303,6 +303,11 @@ function Home() {
       {loading && <Loader />}
 
       <s.FlexContainer jc={"center"} fd={"row"}>
+        <img
+          src={"config/images/paper-boy.png"}
+          className="paper-boy"
+          alt="Logo"
+        />
         <s.Mint>
           <s.SpacerSmall />
           <s.FlexContainer fd={"row"} ai={"center"} jc={"center"}>
