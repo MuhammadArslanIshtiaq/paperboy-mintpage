@@ -1,0 +1,95 @@
+:root {
+  --primary: #f7f7f7 !important;
+  --primary-text: #1a1a1a;
+  --secondary: #5fcde4;
+  --secondary-text: #ffffff;
+  --accent: #505050;
+  --accent-text: #ffffff;
+}
+
+body {
+  /* background: #3491F9 !important; */
+  background-image: url("./images/bg.png") !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.flexContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  vertical-align: middle;
+  margin: 20px auto;
+  width: 80%;
+}
+
+.flexItems {
+  width: 10%;
+}
+.flexItems > a > img {
+  width: 100%;
+}
+
+
+@media screen and (max-width: 480px) {
+  body {
+    background-size: auto;
+    background-position: center;
+    background-size: cover;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .flexItems {
+    width: 15%;
+  }
+}
+
+.overlay {
+  background: #222222;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  top: 0;
+  opacity: 0.5;
+  z-index: 5000;
+  width: 100%;
+}
+
+.spinner{
+  margin: auto;
+}
+
+.logo {
+  width: 50%;
+}
+
+.paper-text{
+  color: #fbd402;
+  -webkit-text-stroke: 0.3px #37465d;
+  -webkit-text-fill-color: #fbd402;
+  font-size: 2em;
+  text-align: center;
+  font-weight: 900;
+
+}
+
+.mint-amount{
+
+  font-weight: bold;
+  font-size: 3rem;
+  color: #ff0000;
+  -webkit-text-stroke: 0.5px #37465d;
+  text-shadow: 2px 2px #37465d;
+}
+
+.mint-available{
+  font-size: 3rem;
+  color: #3cc4f0;  
+  font-weight: 900;
+  -webkit-text-stroke: 2px #37465d;
+  text-shadow: 3px 3px #37465d;
+
+}
+
