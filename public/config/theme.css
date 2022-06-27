@@ -23,9 +23,19 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: left, right;
-    background-color: #0184b6!important;
   }
   
+}
+
+@media screen and (max-width:480px) {
+  body{
+    background-image: url("./images/bg-mb.jpg") !important;    
+    background-color: none !important;
+    background-size: auto;
+    background-position: center;
+    background-size: cover;
+
+  }
 }
 
 .flexContainer {
@@ -44,14 +54,6 @@ body {
   width: 100%;
 }
 
-
-@media screen and (max-width: 480px) {
-  body {
-    background-size: auto;
-    background-position: center;
-    background-size: cover;
-  }
-}
 
 @media only screen and (max-width: 600px) {
   .flexItems {
@@ -74,9 +76,6 @@ body {
   margin: auto;
 }
 
-.logo {
-  width: 50%;
-}
 
 .paper-text{
   color: #fbd402;
@@ -106,32 +105,49 @@ body {
 
 }
 
-.paper-boy {
-  width: 200px;
-  position: absolute;
-  top:10%;
-  z-index: 99;
+
+.logo {
+  width: 40%;
 }
 
-@media (min-width:1025px) 
-   { 
+.heading{
+  width: 33%;
+}
+
+.btn-max{
+  width: 60%;
+}
+
+.btn-mint{
+  width: 30%;
+}
+
+@media screen and (max-width: 480px) {
   
-  .paper-boy{
-    display: none;
+  .logo{
+    width: 50%;
   }
-}
-@media screen and (max-width: 786px) { 
-
-  .paper-boy{
-    
-  position: absolute;
-    top:5%;
+  .heading{
+    width: 33%;
   }
-}
-
-@media screen and (max-width: 480px) { 
-
-  .paper-boy{
-    display: none;
+  .paper-text{
+    font-size: 18px;
+    padding: 0 20px;
   }
+
+  .btn-max{
+    width: 50%;
+  }
+
+  .btn-mint{
+    width: 33%;
+  }
+
+  .align-mob{
+    justify-content: right !important;  
+  }
+  
+
+
 }
+

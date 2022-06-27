@@ -303,11 +303,6 @@ function Home() {
       {loading && <Loader />}
 
       <s.FlexContainer jc={"center"} fd={"row"}>
-        <img
-          src={"config/images/paper-boy.png"}
-          className="paper-boy"
-          alt="Logo"
-        />
         <s.Mint>
           <s.SpacerSmall />
           <s.FlexContainer fd={"row"} ai={"center"} jc={"center"}>
@@ -329,12 +324,17 @@ function Home() {
             </span>
           </s.FlexContainer>
           <s.SpacerSmall />
-          <s.FlexContainer fd={"row"} ai={"center"} jc={"center"}>
+          <s.FlexContainer
+            fd={"row"}
+            ai={"center"}
+            jc={"center"}
+            className="align-mob"
+          >
             <s.AmountContainer
               ai={"center"}
               jc={"center"}
               fd={"row"}
-              style={{ paddingRight: "20px" }}
+              style={{ paddingRight: "25px" }}
             >
               <s.StyledRoundButton
                 style={{ lineHeight: 0.4 }}
@@ -361,7 +361,6 @@ function Home() {
                 +
               </s.StyledRoundButton>
             </s.AmountContainer>
-
             <div
               style={{ cursor: "pointer" }}
               onClick={(e) => {
@@ -371,7 +370,7 @@ function Home() {
             >
               <img
                 src={"config/images/btn-max.png"}
-                class="heading"
+                class="btn-max"
                 alt="max button"
               />
             </div>
@@ -397,6 +396,7 @@ function Home() {
               <>
                 {/* {blockchain.errorMsg === "" ? ( */}
                 <img
+                  className="btn-mint"
                   disabled={state == 0 ? 1 : 0}
                   onClick={(e) => {
                     e.preventDefault();

@@ -138,10 +138,11 @@ export const Mint = styled.div`
   }
 
   @media screen and (max-width: 480px) {
+    background-color: transparent;
     width: 100%;
-    height: 100%;
+    top: 55%;
     padding: 40px 0;
-    border: 20px solid rgba(45, 52, 54, 1);
+    border: none;
   }
 `;
 
