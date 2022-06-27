@@ -140,7 +140,7 @@ export const Mint = styled.div`
   @media screen and (max-width: 480px) {
     background-color: transparent;
     width: 100%;
-    top: 55%;
+    top: 70%;
     padding: 40px 0;
     border: none;
   }
