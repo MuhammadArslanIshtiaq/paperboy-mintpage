@@ -189,16 +189,14 @@ export const FlexItem = styled.div`
 `;
 
 export const connectButton = styled.button`
-  width: 50%;
-  padding: 10px;
-  background-color: #fbd402;
-  color: #3ec4f0 !important;
-  font-family: "wonder";
-  text-align: center;
-  font-size: 1.5rem;
-  border: 2px solid #283142;
-  border-radius: 10px;
+  padding: 40px 80px;
+  background-image: url("config/images/btn-mint.png") !important;
+  background-color: none !important;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   cursor: pointer;
+  border: none;
 `;
 
 export const maxButton = styled.button`

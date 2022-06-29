@@ -10,7 +10,7 @@ import Loader from "../../components/Loader/loader";
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
 const web3 = createAlchemyWeb3(
-  "https://eth-mainnet.alchemyapi.io/v2/DWS-10QG2tUKcNhG_nUqMvkRQT8pwwyv"
+  "https://eth-rinkeby.alchemyapi.io/v2/pBY3syVarS-tO2ZAQlA3uWBq_OqzwIDw"
 );
 var Web3 = require("web3");
 var Contract = require("web3-eth-contract");
@@ -322,7 +322,7 @@ function Home() {
                     claimNFTs();
                   }}
                 >
-                  {claimingNft ? "Confirm Transaction in Wallet" : "Mint"}
+                  {claimingNft ? "Confirm Transaction in Wallet" : ""}
                   {/* {mintDone && !claimingNft  ? feedback : ""} */}
                 </s.connectButton>{" "}
               </s.Container>
@@ -337,7 +337,7 @@ function Home() {
                     dispatch(connectWallet());
                     getData();
                   }}
-                  src={"config/images/btn-mint.png"}
+                  src={"config/images/btn-connect.png"}
                   style={{
                     cursor: "pointer",
                   }}
