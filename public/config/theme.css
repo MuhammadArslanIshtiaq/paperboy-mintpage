@@ -145,9 +145,25 @@ body {
 
   .align-mob{
     justify-content: right !important;  
-  }
-  
+  } 
 
 
 }
+
+.overlay-status{
+
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 50;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 36px;
+}
+  
 

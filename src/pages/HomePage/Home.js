@@ -236,8 +236,11 @@ function Home() {
     <>
       {loading && <Loader />}
 
+      <div className="overlay-status">{statusAlert}</div>
+
       <s.FlexContainer jc={"center"} fd={"row"}>
         <s.Mint>
+          <s.SpacerSmall />
           <s.SpacerSmall />
           <s.FlexContainer fd={"row"} ai={"center"} jc={"center"}>
             <img src={"config/images/logo.png"} className="logo" alt="Logo" />
@@ -315,7 +318,7 @@ function Home() {
             blockchain.smartContract !== null &&
             blockchain.errorMsg === "" ? (
               <s.Container ai={"center"} jc={"center"} fd={"row"}>
-                <s.connectButton
+                <s.connectButtonImg
                   disabled={disable}
                   onClick={(e) => {
                     e.preventDefault();
@@ -324,7 +327,7 @@ function Home() {
                 >
                   {claimingNft ? "Confirm Transaction in Wallet" : ""}
                   {/* {mintDone && !claimingNft  ? feedback : ""} */}
-                </s.connectButton>{" "}
+                </s.connectButtonImg>{" "}
               </s.Container>
             ) : (
               <>

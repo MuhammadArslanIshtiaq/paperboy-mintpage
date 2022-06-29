@@ -189,6 +189,24 @@ export const FlexItem = styled.div`
 `;
 
 export const connectButton = styled.button`
+  width: 100%;
+  padding: 10px;
+  background-color: transparent;
+  color: var(--primary);
+  font-family: "wonder";
+  text-align: center;
+  font-size: 1.5rem;
+  border: 1px solid var(--primary);
+  border-radius: 10px;
+  cursor: pointer;
+
+  :hover {
+    background: #1dd1a1;
+    border: 1px solid #fff;
+  }
+`;
+
+export const connectButtonImg = styled.button`
   padding: 40px 80px;
   background-image: url("config/images/btn-mint.png") !important;
   background-color: none !important;
