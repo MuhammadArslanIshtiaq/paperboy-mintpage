@@ -161,54 +161,6 @@ function Home() {
 
       // Nft states
       if (currentState == 1) {
-        let totalWLNfts = 54;
-        supply < totalWLNfts && nftMintedByUser != 0
-          ? setDisable(false)
-          : setDisable(true);
-        const claimingAddress = keccak256(blockchain.account);
-        // `getHexProof` returns the neighbour leaf and all parent nodes hashes that will
-        // be required to derive the Merkle Trees root hash.
-        const hexProof = merkleTree.getHexProof(claimingAddress);
-        setProof(hexProof);
-        let mintWL = merkleTree.verify(hexProof, claimingAddress, rootHash);
-        let mintWLContractMethod = await blockchain.smartContract.methods
-          .isWhitelisted(blockchain.account, hexProof)
-          .call();
-        if (mintWLContractMethod && mintWL) {
-          setCanMintWL(mintWL);
-          setFeedback(
-            `Welcome Whitelist Member, you can mint up to ${nftMintedByUser} NFTs`
-          );
-        } else {
-          setFeedback(`Sorry, your wallet is not on the whitelist`);
-          setDisable(true);
-        }
-      } else if (currentState == 2) {
-        let totalEANfts = 150;
-        supply < totalEANfts && nftMintedByUser != 0
-          ? setDisable(false)
-          : setDisable(true);
-        const claimingAddress = keccak256(blockchain.account);
-        const hexProof = merkleTreeEarly.getHexProof(claimingAddress);
-        setProof(hexProof);
-        let mintEarly = merkleTreeEarly.verify(
-          hexProof,
-          claimingAddress,
-          rootHashEarly
-        );
-        let mintEAContractMethod = await blockchain.smartContract.methods
-          .isEarlyAccess(blockchain.account, hexProof)
-          .call();
-        if (mintEAContractMethod && mintEarly) {
-          setCanMintEA(mintEarly);
-          setFeedback(
-            `Welcome Early Access Member, you can mint up to ${nftMintedByUser} NFTs`
-          );
-        } else {
-          setFeedback(`Sorry, your wallet is not on the Early Access list`);
-          setDisable(true);
-        }
-      } else {
         let totalPublic = 500;
         supply < totalPublic ? setDisable(false) : setDisable(true);
         setFeedback(
@@ -247,25 +199,7 @@ function Home() {
       setDisable(true);
       setDisplayCost(0.0);
       setMax(0);
-    } else if (currentState == 2) {
-      setStatusAlert("EARLY ACCESS IS NOW LIVE!");
-      let earlyAccessCost = await contract.methods.costEarlyAccess().call();
-      setDisplayCost(web3.utils.fromWei(earlyAccessCost));
-      setNftCost(web3.utils.fromWei(earlyAccessCost));
-      setFeedback("Have you got the Early Access?");
-
-      let earlyMax = await contract.methods.maxMintAmountEarlyAccess().call();
-      setMax(earlyMax);
     } else if (currentState == 1) {
-      let wlCost = await contract.methods.costWL().call();
-      setDisplayCost(web3.utils.fromWei(wlCost));
-      setNftCost(web3.utils.fromWei(wlCost));
-      setStatusAlert("WHITELIST IS NOW LIVE!");
-      setFeedback("Are you Whitelisted Member?");
-
-      let wlMax = await contract.methods.maxMintAmountWL().call();
-      setMax(wlMax);
-    } else {
       let puCost = await contract.methods.cost().call();
       setDisplayCost(web3.utils.fromWei(puCost));
       setNftCost(web3.utils.fromWei(puCost));
