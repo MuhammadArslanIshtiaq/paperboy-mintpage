@@ -181,21 +181,21 @@ function Home() {
       // Nft states
       if (currentState == 1) {
         let canMint = await blockchain.smartContract.methods
-        .hasMintPass(blockchain.account)
-        .call();
+          .hasMintPass(blockchain.account)
+          .call();
         console.log({ canMint });
         setCanMintFree(canMint);
-        if(canMint){
+        if (canMint) {
           setCanMintFree(canMint);
           setFeedback(
             `Welcome, you can mint up to ${nftMintedByUser} NFTs per transaction`
           );
         } else {
-          setFeedback(`Sorry, your wallet is not on the Mint Pass list`);
+          setFeedback(`Sorry, You don't have Mint Pass`);
           setDisable(true);
         }
-        
-      } else if( currentState == 2){
+
+      } else if (currentState == 2) {
         const claimingAddress = keccak256(blockchain.account);
         // `getHexProof` returns the neighbour leaf and all parent nodes hashes that will
         // be required to derive the Merkle Trees root hash.
@@ -205,14 +205,17 @@ function Home() {
         let mintWLContractMethod = await blockchain.smartContract.methods
           .isWhitelisted(blockchain.account, hexProof)
           .call();
-        if (mintWLContractMethod && mintWL) {
+        let canMint = await blockchain.smartContract.methods
+          .hasMintPass(blockchain.account)
+          .call();
+        if (mintWLContractMethod && mintWL || canMint) {
           setCanMintWL(mintWL);
           setFeedback(`Welcome Allowlist Member, you can mint up to ${nftMintedByUser} NFTs`)
         } else {
-          setFeedback(`Sorry, your wallet is not on the Allowlist`);
+          setFeedback(`Sorry, You don't have Mint Pass and not in the Allowlist`);
           setDisable(true);
         }
-      } else if( currentState == 3){
+      } else if (currentState == 3) {
         setFeedback(
           `Welcome, you can mint up to ${nftMintedByUser} NFTs per transaction`
         );
@@ -329,26 +332,27 @@ function Home() {
         </div>
 
         <div className="main">
-          {blockchain.account === null 
-          && blockchain.smartContract === null
-           ? (
+          {blockchain.account === null
+            && blockchain.smartContract === null
+            && state != 0
+            ? (
 
-          <img src={Connectwallet} className="wallet" 
-          onClick={(e) => {
-            e.preventDefault();
-            dispatch(connectWallet());
-            getData();
-          }} />
-          ):
+              <img src={Connectwallet} className="wallet"
+                onClick={(e) => {
+                  e.preventDefault();
+                  dispatch(connectWallet());
+                  getData();
+                }} />
+            ) :
             <>
-             <button className="wallet" style={{
-              backgroundColor:"#ff0000",
-              border:"none",
-              color:"#fff",
-              borderRadius:"17px",
-              fontSize:"1.5rem",
-              
-             }}>{feedback}</button>
+              <button className="wallet" style={{
+                backgroundColor: "#ff0000",
+                border: "none",
+                color: "#fff",
+                borderRadius: "17px",
+                fontSize: "1.5rem",
+
+              }}>{feedback}</button>
             </>
           }
 
@@ -399,16 +403,19 @@ function Home() {
               />
             </div>
           )}
-          <CrossmintPayButton
+
+          {days <= 0 && hours <= 0 && minutes <= 0 && seconds <= 0 && (
+            <CrossmintPayButton
               collectionTitle="PaperBoyz NFT"
               collectionDescription="PaperBoyz NFT"
               collectionPhoto=""
-              disabled= {state == 0 ? 0 : 1}
+              disabled={state == 0 ? 0 : 1}
               className="mintWithCard"
-              environment="staging" 
+              environment="staging"
               clientId="3c702861-ebfc-4a7e-84d8-42640823676f"
-              mintConfig={{"_mintAmount": mintAmount, "totalPrice": displayCost}}                        
+              mintConfig={{ "_mintAmount": mintAmount, "totalPrice": displayCost }}
             />
+          )}
           {/* <img src={mintWithCard} className="mintWithCard" /> */}
 
           <div className="token">
@@ -458,21 +465,21 @@ function Home() {
           </div>
 
           <a>
-            { blockchain.account !== "" 
-            && blockchain.smartContract !== null 
-            && blockchain.errorMsg === ""
-            && disable == false ? (
-            <img src={mint} alt="" className="mint" 
-  
-            onClick={(e) => {
-              e.preventDefault();
-              claimNFTs();
-            }}
-            />
-            ) : 
-            <img src={mint} alt="" className="mint" style={{
-              filter: "grayscale(100%)"
-            }} />
+            {blockchain.account !== ""
+              && blockchain.smartContract !== null
+              && blockchain.errorMsg === ""
+              && disable == false ? (
+              <img src={mint} alt="" className="mint"
+
+                onClick={(e) => {
+                  e.preventDefault();
+                  claimNFTs();
+                }}
+              />
+            ) :
+              <img src={mint} alt="" className="mint" style={{
+                filter: "grayscale(100%)"
+              }} />
             }
           </a>
           <div className="maxMintable">
