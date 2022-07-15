@@ -356,6 +356,10 @@ function Home() {
             </>
           }
 
+          <s.TextTitle color={"var(--primary)"} className="minted-balance">
+            {CONFIG.MAX_SUPPLY - supply} / {CONFIG.MAX_SUPPLY}
+          </s.TextTitle>
+
           {/* phases based on state */}
           {state == 0 ? (
             <>
