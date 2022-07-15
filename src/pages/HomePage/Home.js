@@ -19,6 +19,9 @@ import btn from "../../assests/images/btn.png";
 import mint from "../../assests/images/mint.png";
 import Connectwallet from "../../assests/images/Connect_Wallet.png";
 import phase1 from "../../assests/images/phase-01.png";
+import phase2 from "../../assests/images/phase-02.png";
+import phase3 from "../../assests/images/phase-03.png";
+import btnOpenSea from "../../assests/images/btn-opensea.png";
 import mintWithCard from "../../assests/images/btn-mintCard.png";
 
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
@@ -54,7 +57,7 @@ function Home() {
   const [feedback, setFeedback] = useState("");
   const [statusAlert, setStatusAlert] = useState("");
   const [mintAmount, setMintAmount] = useState(1);
-  const [displayCost, setDisplayCost] = useState(0);
+  const [displayCost, setDisplayCost] = useState(0.0);
   const [state, setState] = useState(-1);
   const [nftCost, setNftCost] = useState(-1);
   const [canMintWL, setCanMintWL] = useState(false);
@@ -83,7 +86,7 @@ function Home() {
     SHOW_BACKGROUND: false,
   });
 
-  let countDownDate = new Date("2022-07-15T18:00:00-0800");
+  let countDownDate = new Date("2022-07-15T18:30:00-0800");
 
   let now = new Date().getTime();
   let timeleft = countDownDate - now;
@@ -291,7 +294,14 @@ function Home() {
 
         <div className="main">
           <img src={Connectwallet} className="wallet" />
+
+          {/* phases based on state */}
+
           <img src={phase1} className="phases" />
+          <a href="https://opensea.io/collection/nftmagpass" target="blank">
+            <img src={btnOpenSea} className="btn-opensea" />
+          </a>
+
           {/* timer hide code */}
           {days >= 0 && hours >= 0 && minutes >= 0 && seconds >= 0 && (
             <div className="timer-container">
@@ -348,11 +358,20 @@ function Home() {
             </s.AmountContainer>
           </div>
 
+          <div className="total-price mint-amount">
+            Total Price: {displayCost}
+          </div>
+
           <a>
             <img src={mint} alt="" className="mint" />
           </a>
+          <div className="maxMintable">
+            <p>*MAX 10 MINTABLE</p>
+          </div>
         </div>
       </div>
+
+      {/* purana code */}
 
       <s.FlexContainer jc={"center"} fd={"row"}>
         <s.Mint style={{ display: "none" }}>

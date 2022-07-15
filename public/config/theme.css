@@ -180,6 +180,16 @@ body {
   cursor: default !important;
 }
 
+.btn-opensea {
+  position: absolute;
+  width: 5.5vw;
+  margin: auto;
+  left: 29.5%;
+  top: 39.5%;
+  cursor: pointer !important;
+
+}
+
 .mintWithCard {
   position: absolute;
   width: 25vw;
@@ -276,21 +286,49 @@ background-size: cover; */
   float: right;
 }
 
+  
+
+
 .mint-amt{
   position: absolute;
   z-index: 3;
-  top: 27vw;
+  top: 25vw;
   right: 15vw;
   width: 20vw;
+}
+
+.total-price{
+  position: absolute;
+  z-index: 3;
+  top: 30vw;
+  right: 10vw;
+  width: 20vw;
+  font-size: 2rem;
+  color: #ff0000;
+
 }
 
 .mint {
   position: absolute;
   z-index: 3;
-  top: 32vw;
-  right: 15vw;
-  width: 20vw;
+  top: 35vw;
+  right: 18vw;
+  width: 12vw;
   cursor: pointer;
+
+}
+
+.maxMintable{
+  position: absolute;
+  z-index: 3;
+  top: 41vw;
+  right: 20vw;
+  margin: auto;
+  color: #000;
+  font-size: 14px;
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: 700;
 
 }
 
@@ -300,7 +338,37 @@ background-size: cover; */
   display: none;
 }
 
+@media (max-width: 1130px) {
+
+  .total-price{    
+  position: absolute;
+  top: 31vw;
+  right: 14vw;
+  }
+
+}
+
+
+@media (max-width: 950px) {
+
+  .total-price{    
+  position: absolute;
+  top: 31vw;
+  right: 14vw;
+  font-size: 1.8em;
+  }
+
+}
+
+
 @media (max-width: 767px) {
+
+ 
+  
+
+  .mint-amount {
+    font-size: 2rem;
+  }
 
   .bg,
   .paper,
@@ -362,24 +430,19 @@ background-size: cover; */
       font-family: Megusto;
       left: 12%;
     }
-    
-
-
+   
   .btn-container .text {
     font-family: Megusto;
     font-size: 1.2vw;
     color: yellow;
     user-select: none;
   }
-
-    
-  
- 
+      
   .m-token {
     display: block;
     width: 80%;
     min-height: 100%;
-    margin-top: 20em;
+    margin-top: 25em;
   }
 
   .m-token img {
@@ -390,7 +453,7 @@ background-size: cover; */
 
   .mint {
     top: unset;
-    bottom: 50vw;
+    bottom: 52vw;
     left: 0;
     right: 0;
     width: 25vw;
@@ -399,15 +462,38 @@ background-size: cover; */
 
   }
 
+  .maxMintable{
+    top: unset;
+    bottom: 48vw;
+    left: 0;
+    right: 0;
+    width: 25vw;
+    font-size: 0.8em;
+    
+  
+  }
+
   .mint-amt{
     top: unset;
-    bottom: 60vw;
+    bottom: 67vw;
     z-index: 3;
     left: 0;
     right: 0;
-    width: 20vw;
+    width: 28vw;
     margin: auto;
   }
+
+  .total-price{    
+    top: unset;
+    bottom: 64vw;
+    z-index: 3;
+    left: 0;
+    right: 0;
+    width: 28vw;
+    margin: auto;
+    
+    }
+  
 
   .wallet {
     position: absolute;
@@ -427,6 +513,16 @@ background-size: cover; */
     cursor: none !important;
   }
 
+  .btn-opensea {
+    position: absolute;
+    width:10vw;
+    margin: auto;
+    left: 53%;
+    top: 12.6%;
+    cursor: pointer !important;
+  
+  }
+
   .mintWithCard {
     position: absolute;
     width: 50vw;
@@ -437,10 +533,24 @@ background-size: cover; */
 }
 
 
+@media (max-width: 650px) {
+
+
+  .total-price{    
+    font-size: 1.3em;
+    
+    }
+
+}
+
 @media (max-width: 510px) {
 
   .main {
     background-image: none;
+  }
+
+  .maxMintable{
+    font-size: 0.6em;
   }
 }
 
@@ -464,21 +574,43 @@ background-size: cover; */
 
   .mint {
     top: unset;
-    bottom: 60vw;
+    bottom: 63vw;
     left: 6%;
     width: 30vw;
     margin: auto;
 
   }
+
+  .maxMintable{
+    top: unset;
+    bottom: 59vw;
+    left: 0;
+    right: 0;
+    width: 25vw;
+    font-size: 0.5em;
+    
+  
+  }
+
 
   .mint-amt {
     top: unset;
-    bottom: 70vw;
+    bottom: 78vw;
     left: 6%;
-    width: 30vw;
+    width: 34vw;
     margin: auto;
 
   }
+
+  .total-price{    
+    top: unset;
+    bottom: 76vw;
+    left: 6%;
+    width: 34vw;
+    margin: auto;
+    font-size: 1.3em;
+    
+    }
 
   .wallet {
     position: absolute;
@@ -504,6 +636,15 @@ background-size: cover; */
     width: 60vw;
     left: 20%;
     top: 10%;
+  }
+
+   .btn-opensea {
+    width:11vw;
+    margin: auto;
+    left: 54%;
+    top: 13.3%;
+    cursor: pointer !important;
+  
   }
 
   .mintWithCard {
@@ -572,11 +713,25 @@ background-size: cover; */
   }
 
   .mint{
-    bottom: 57vw;
+    bottom: 55vw;
+  }
+  .total-price{    
+    
+    bottom: 68vw;   
+    font-size: 1em;
+    
+    }
+
+  .maxMintable{
+    bottom: 56vw;    
+    font-size: 0.5em;
+    
+  
   }
 
+
   .mint-amt{
-    bottom: 67vw;
+    bottom: 71vw;
   }
   
 }
@@ -601,5 +756,12 @@ background-size: cover; */
   .timer-container {
     margin-top: 0px;
     margin-bottom: 0px;
+  }
+
+  .maxMintable{
+    bottom: 56vw;    
+    font-size: 0.5em;
+    width: 80vw;  
+  
   }
 }
