@@ -37,7 +37,7 @@ const keccak256 = require("keccak256");
 const leafNodes = whitelistAddresses.map((addr) => keccak256(addr));
 const merkleTree = new MerkleTree(leafNodes, keccak256, { sortPairs: true });
 const rootHash = merkleTree.getRoot();
-console.log("Whitelist Merkle Tree\n", merkleTree.toString());
+console.log("Allowlist Merkle Tree\n", merkleTree.toString());
 
 // EarlyAccess MerkleTree
 const leafNodesEarly = earlyAccessAddresses.map((addr) => keccak256(addr));
@@ -45,7 +45,6 @@ const merkleTreeEarly = new MerkleTree(leafNodesEarly, keccak256, {
   sortPairs: true,
 });
 const rootHashEarly = merkleTreeEarly.getRoot();
-console.log("Early Access Tree\n", merkleTreeEarly.toString());
 
 function Home() {
   const dispatch = useDispatch();
@@ -60,8 +59,8 @@ function Home() {
   const [displayCost, setDisplayCost] = useState(0.0);
   const [state, setState] = useState(-1);
   const [nftCost, setNftCost] = useState(-1);
+  const [canMintFree, setCanMintFree] = useState(false);
   const [canMintWL, setCanMintWL] = useState(false);
-  const [canMintEA, setCanMintEA] = useState(false);
   const [disable, setDisable] = useState(false);
   const [max, setMax] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -107,12 +106,6 @@ function Home() {
     setClaimingNft(true);
     setLoading(true);
 
-    // const estGas = await blockchain.smartContract.methods.
-    // mint(mintAmount,proof).estimateGas({
-    //   from: blockchain.account,
-    //   to: CONFIG.CONTRACT_ADDRESS,
-    // });
-    // console.log({ estGas });
 
     blockchain.smartContract.methods
       .mint(mintAmount, proof)
@@ -162,7 +155,6 @@ function Home() {
 
   const maxNfts = () => {
     setMintAmount(max);
-
     setDisplayCost(parseFloat(nftCost * max).toFixed(2));
   };
 
@@ -187,8 +179,39 @@ function Home() {
 
       // Nft states
       if (currentState == 1) {
-        let totalPublic = 500;
-        supply < totalPublic ? setDisable(false) : setDisable(true);
+        let canMint = await blockchain.smartContract.methods
+        .hasMintPass(blockchain.account)
+        .call();
+        console.log({ canMint });
+        setCanMintFree(canMint);
+        if(canMint){
+          setCanMintFree(canMint);
+          setFeedback(
+            `Welcome, you can mint up to ${nftMintedByUser} NFTs per transaction`
+          );
+        } else {
+          setFeedback(`Sorry, your wallet is not on the Mint Pass list`);
+          setDisable(true);
+        }
+        
+      } else if( currentState == 2){
+        const claimingAddress = keccak256(blockchain.account);
+        // `getHexProof` returns the neighbour leaf and all parent nodes hashes that will
+        // be required to derive the Merkle Trees root hash.
+        const hexProof = merkleTree.getHexProof(claimingAddress);
+        setProof(hexProof);
+        let mintWL = merkleTree.verify(hexProof, claimingAddress, rootHash);
+        let mintWLContractMethod = await blockchain.smartContract.methods
+          .isWhitelisted(blockchain.account, hexProof)
+          .call();
+        if (mintWLContractMethod && mintWL) {
+          setCanMintWL(mintWL);
+          setFeedback(`Welcome Allowlist Member, you can mint up to ${nftMintedByUser} NFTs`)
+        } else {
+          setFeedback(`Sorry, your wallet is not on the Allowlist`);
+          setDisable(true);
+        }
+      } else if( currentState == 3){
         setFeedback(
           `Welcome, you can mint up to ${nftMintedByUser} NFTs per transaction`
         );
@@ -207,7 +230,7 @@ function Home() {
     const abi = await abiResponse.json();
     var contract = new Contract(
       abi,
-      "0x1B2F60C37530AC8c6D2651bd9345D7827637941B"
+      "0x180F9131C1214cb220Dd3862B5fe235554B63b12"
     );
     contract.setProvider(web3.currentProvider);
     // Get Total Supply
@@ -217,6 +240,7 @@ function Home() {
     // Get Contract State
     let currentState = await contract.methods.currentState().call();
     setState(currentState);
+    console.log({ currentState });
 
     // Set Price and Max According to State
 
@@ -226,10 +250,21 @@ function Home() {
       setDisplayCost(0.0);
       setMax(0);
     } else if (currentState == 1) {
+      let puCost = await contract.methods.mintPassCost().call();
+      setDisplayCost(web3.utils.fromWei(puCost));
+      setNftCost(web3.utils.fromWei(puCost));
+      let puMax = await contract.methods.maxMintAmountPublic().call();
+      setMax(puMax);
+    } else if (currentState == 2) {
+      let puCost = await contract.methods.allowListCost().call();
+      setDisplayCost(web3.utils.fromWei(puCost));
+      setNftCost(web3.utils.fromWei(puCost));
+      let puMax = await contract.methods.maxMintAmountPublic().call();
+      setMax(puMax);
+    } else if (currentState == 3) {
       let puCost = await contract.methods.cost().call();
       setDisplayCost(web3.utils.fromWei(puCost));
       setNftCost(web3.utils.fromWei(puCost));
-      setStatusAlert("Public Mint is Live");
       let puMax = await contract.methods.maxMintAmountPublic().call();
       setMax(puMax);
     }
@@ -293,14 +328,51 @@ function Home() {
         </div>
 
         <div className="main">
-          <img src={Connectwallet} className="wallet" />
+          {blockchain.account === null 
+          && blockchain.smartContract === null
+           ? (
+
+          <img src={Connectwallet} className="wallet" 
+          disabled={state == 0 ? 1 : 0}
+          onClick={(e) => {
+            e.preventDefault();
+            dispatch(connectWallet());
+            getData();
+          }} />
+          ):
+            <>
+             <button className="wallet" style={{
+              backgroundColor:"#ff0000",
+              border:"none",
+              color:"#fff",
+              borderRadius:"17px",
+              fontSize:"1.5rem",
+              
+             }}>{feedback}</button>
+            </>
+          }
 
           {/* phases based on state */}
+          {state == 1 ? (
+            <>
+              <img src={phase1} className="phases" />
+              <a href="https://opensea.io/collection/nftmagpass" target="blank">
+                <img src={btnOpenSea} className="btn-opensea" />
+              </a>
+            </>
+          ) : ""}
 
-          <img src={phase1} className="phases" />
-          <a href="https://opensea.io/collection/nftmagpass" target="blank">
-            <img src={btnOpenSea} className="btn-opensea" />
-          </a>
+          {state == 2 ? (
+            <>
+              <img src={phase2} className="phases" />
+            </>
+          ) : ""}
+
+          {state == 3 ? (
+            <>
+              <img src={phase3} className="phases" />
+            </>
+          ) : ""}
 
           {/* timer hide code */}
           {days >= 0 && hours >= 0 && minutes >= 0 && seconds >= 0 && (
@@ -313,8 +385,16 @@ function Home() {
               />
             </div>
           )}
-
-          <img src={mintWithCard} className="mintWithCard" />
+          <CrossmintPayButton
+              collectionTitle="PaperBoyz NFT"
+              collectionDescription="PaperBoyz NFT"
+              collectionPhoto=""
+              className="mintWithCard"
+              environment="staging" 
+              clientId="124d14a0-077d-4e74-b12d-d9525b75d946"
+              mintConfig={{"_mintAmount": mintAmount, "totalPrice": displayCost}}                        
+            />
+          {/* <img src={mintWithCard} className="mintWithCard" /> */}
 
           <div className="token">
             <img src={token} alt="" />
@@ -363,7 +443,22 @@ function Home() {
           </div>
 
           <a>
-            <img src={mint} alt="" className="mint" />
+            { blockchain.account !== "" 
+            && blockchain.smartContract !== null 
+            && blockchain.errorMsg === ""
+            && disable == false ? (
+            <img src={mint} alt="" className="mint" 
+  
+            onClick={(e) => {
+              e.preventDefault();
+              claimNFTs();
+            }}
+            />
+            ) : 
+            <img src={mint} alt="" className="mint" style={{
+              filter: "grayscale(100%)"
+            }} />
+            }
           </a>
           <div className="maxMintable">
             <p>*MAX 10 MINTABLE</p>
@@ -442,7 +537,7 @@ function Home() {
             >
               <img
                 src={"config/images/btn-max.png"}
-                class="btn-max"
+                className="btn-max"
                 alt="max button"
               />
             </div>
@@ -450,8 +545,8 @@ function Home() {
           <s.SpacerSmall />
           <s.FlexContainer fd={"row"} ai={"center"} jc={"center"}>
             {blockchain.account !== "" &&
-            blockchain.smartContract !== null &&
-            blockchain.errorMsg === "" ? (
+              blockchain.smartContract !== null &&
+              blockchain.errorMsg === "" ? (
               <s.Container ai={"center"} jc={"center"} fd={"row"}>
                 <s.connectButtonImg
                   disabled={disable}
