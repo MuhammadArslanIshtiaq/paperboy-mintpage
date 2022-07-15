@@ -107,7 +107,6 @@ function Home() {
     setClaimingNft(true);
     setLoading(true);
 
-
     blockchain.smartContract.methods
       .mint(mintAmount, proof)
       .send({
@@ -194,7 +193,6 @@ function Home() {
           setFeedback(`Sorry, You don't have Mint Pass`);
           setDisable(true);
         }
-
       } else if (currentState == 2) {
         const claimingAddress = keccak256(blockchain.account);
         // `getHexProof` returns the neighbour leaf and all parent nodes hashes that will
@@ -208,11 +206,15 @@ function Home() {
         let canMint = await blockchain.smartContract.methods
           .hasMintPass(blockchain.account)
           .call();
-        if (mintWLContractMethod && mintWL || canMint) {
+        if ((mintWLContractMethod && mintWL) || canMint) {
           setCanMintWL(mintWL);
-          setFeedback(`Welcome Allowlist Member, you can mint up to ${nftMintedByUser} NFTs`)
+          setFeedback(
+            `Welcome Allowlist Member, you can mint up to ${nftMintedByUser} NFTs`
+          );
         } else {
-          setFeedback(`Sorry, You don't have Mint Pass and not in the Allowlist`);
+          setFeedback(
+            `Sorry, You don't have Mint Pass and not in the Allowlist`
+          );
           setDisable(true);
         }
       } else if (currentState == 3) {
@@ -332,29 +334,34 @@ function Home() {
         </div>
 
         <div className="main">
-          {blockchain.account === null
-            && blockchain.smartContract === null
-            && state != 0
-            ? (
-
-              <img src={Connectwallet} className="wallet"
-                onClick={(e) => {
-                  e.preventDefault();
-                  dispatch(connectWallet());
-                  getData();
-                }} />
-            ) :
+          {blockchain.account === null &&
+          blockchain.smartContract === null &&
+          state != 0 ? (
+            <img
+              src={Connectwallet}
+              className="wallet"
+              onClick={(e) => {
+                e.preventDefault();
+                dispatch(connectWallet());
+                getData();
+              }}
+            />
+          ) : (
             <>
-              <button className="wallet" style={{
-                backgroundColor: "#ff0000",
-                border: "none",
-                color: "#fff",
-                borderRadius: "17px",
-                fontSize: "1.5rem",
-
-              }}>{feedback}</button>
+              <button
+                className="wallet"
+                style={{
+                  backgroundColor: "#ff0000",
+                  border: "none",
+                  color: "#fff",
+                  borderRadius: "17px",
+                  fontSize: "1.5rem",
+                }}
+              >
+                {feedback}
+              </button>
             </>
-          }
+          )}
 
           <s.TextTitle color={"var(--primary)"} className="minted-balance">
             {CONFIG.MAX_SUPPLY - supply} / {CONFIG.MAX_SUPPLY}
@@ -368,7 +375,9 @@ function Home() {
                 <img src={btnOpenSea} className="btn-opensea" />
               </a>
             </>
-          ) : ""}
+          ) : (
+            ""
+          )}
           {state == 1 ? (
             <>
               <img src={phase1} className="phases" />
@@ -376,7 +385,9 @@ function Home() {
                 <img src={btnOpenSea} className="btn-opensea" />
               </a>
             </>
-          ) : ""}
+          ) : (
+            ""
+          )}
 
           {state == 2 ? (
             <>
@@ -385,7 +396,9 @@ function Home() {
                 <img src={btnOpenSea} className="btn-opensea" />
               </a>
             </>
-          ) : ""}
+          ) : (
+            ""
+          )}
 
           {state == 3 ? (
             <>
@@ -394,7 +407,9 @@ function Home() {
                 <img src={btnOpenSea} className="btn-opensea" />
               </a>
             </>
-          ) : ""}
+          ) : (
+            ""
+          )}
 
           {/* timer hide code */}
           {days >= 0 && hours >= 0 && minutes >= 0 && seconds >= 0 && (
@@ -417,7 +432,7 @@ function Home() {
               className="mintWithCard"
               environment="staging"
               clientId="3c702861-ebfc-4a7e-84d8-42640823676f"
-              mintConfig={{ "_mintAmount": mintAmount, "totalPrice": displayCost }}
+              mintConfig={{ _mintAmount: mintAmount, totalPrice: displayCost }}
             />
           )}
           {/* <img src={mintWithCard} className="mintWithCard" /> */}
@@ -464,27 +479,32 @@ function Home() {
             </s.AmountContainer>
           </div>
 
-          <div className="total-price mint-amount">
-            Total Price: {displayCost}
-          </div>
+          <div className="total-price">TOTAL PRICE: {displayCost}</div>
 
           <a>
-            {blockchain.account !== ""
-              && blockchain.smartContract !== null
-              && blockchain.errorMsg === ""
-              && disable == false ? (
-              <img src={mint} alt="" className="mint"
-
+            {blockchain.account !== "" &&
+            blockchain.smartContract !== null &&
+            blockchain.errorMsg === "" &&
+            disable == false ? (
+              <img
+                src={mint}
+                alt=""
+                className="mint"
                 onClick={(e) => {
                   e.preventDefault();
                   claimNFTs();
                 }}
               />
-            ) :
-              <img src={mint} alt="" className="mint" style={{
-                filter: "grayscale(100%)"
-              }} />
-            }
+            ) : (
+              <img
+                src={mint}
+                alt=""
+                className="mint"
+                style={{
+                  filter: "grayscale(100%)",
+                }}
+              />
+            )}
           </a>
           <div className="maxMintable">
             <p>*MAX 10 MINTABLE</p>
@@ -571,8 +591,8 @@ function Home() {
           <s.SpacerSmall />
           <s.FlexContainer fd={"row"} ai={"center"} jc={"center"}>
             {blockchain.account !== "" &&
-              blockchain.smartContract !== null &&
-              blockchain.errorMsg === "" ? (
+            blockchain.smartContract !== null &&
+            blockchain.errorMsg === "" ? (
               <s.Container ai={"center"} jc={"center"} fd={"row"}>
                 <s.connectButtonImg
                   disabled={disable}

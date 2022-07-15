@@ -12,6 +12,7 @@ body {
   background-image: url("./images/bg1.png") !important;
   background-size: contain;
   background-position: center;
+  font-family: "poppins";
 }
 
 
@@ -83,53 +84,6 @@ body {
   font-weight: 900;
   -webkit-text-stroke: 2px #37465d;
   text-shadow: 3px 3px #37465d;
-
-}
-
-
-.logo {
-  width: 40%;
-}
-
-.heading {
-  width: 33%;
-}
-
-.btn-max {
-  width: 60%;
-}
-
-.btn-mint {
-  width: 30%;
-}
-
-@media screen and (max-width: 480px) {
-
-  .logo {
-    width: 50%;
-  }
-
-  .heading {
-    width: 33%;
-  }
-
-  .paper-text {
-    font-size: 18px;
-    padding: 0 20px;
-  }
-
-  .btn-max {
-    width: 50%;
-  }
-
-  .btn-mint {
-    width: 33%;
-  }
-
-  .align-mob {
-    justify-content: right !important;
-  }
-
 
 }
 
@@ -231,6 +185,7 @@ background-size: cover; */
   z-index: 4;
   left: 20%;
   top: 52%;
+
 }
 
 .btn-container {
@@ -268,7 +223,7 @@ background-size: cover; */
 }
 
 .btn-container .text {
-  font-family: Megusto;
+  font-family: 'Rubric';
   font-size: 1vw;
   color: yellow;
   user-select: none;
@@ -286,48 +241,49 @@ background-size: cover; */
   float: right;
 }
 
-  
-
-
-.mint-amt{
+.mint-amt {
   position: absolute;
   z-index: 3;
-  top: 25vw;
-  right: 15vw;
-  width: 20vw;
+  top: 28vw;
+  right: 17vw;
+  width: 15vw;
 }
 
-.total-price{
+.total-price {
   position: absolute;
   z-index: 3;
-  top: 30vw;
-  right: 10vw;
+  top: 32vw;
+  right: 12vw;
   width: 20vw;
-  font-size: 2rem;
+  font-size: 2.4rem;
   color: #ff0000;
-
+  font-weight: bold;
+  -webkit-text-stroke: 0.5px #37465d;
+  text-shadow: 1px 1px #37465d;
+  font-family: 'Rubric';
+  
 }
 
 .mint {
   position: absolute;
   z-index: 3;
-  top: 35vw;
-  right: 18vw;
+  top: 36vw;
+  right: 19vw;
   width: 12vw;
   cursor: pointer;
 
 }
 
-.maxMintable{
+.maxMintable {
   position: absolute;
   z-index: 3;
-  top: 41vw;
-  right: 20vw;
+  top: 42vw;
+  right: 21vw;
   margin: auto;
   color: #000;
   font-size: 14px;
   text-align: center;
-  font-family: sans-serif;
+  font-family: 'Rubric';
   font-weight: 700;
 
 }
@@ -338,33 +294,68 @@ background-size: cover; */
   display: none;
 }
 
-@media (max-width: 1130px) {
+@media (max-width: 1420px) {
 
-  .total-price{    
-  position: absolute;
-  top: 31vw;
-  right: 14vw;
+  .total-price {
+    top: 33vw;
+    right: 11vw;
+    font-size: 2vw;
+  }
+
+  .mint {
+    top: 37vw;
+    right: 19vw;
+  }
+
+  .maxMintable {
+    top: 43vw;
+    right: 20vw;
+  }
+}
+
+@media (max-width: 1200px) {
+
+  .total-price {
+    top: 33vw;
+    right: 12vw;
+    font-size: 2vw;
   }
 
 }
 
 
-@media (max-width: 950px) {
+@media (max-width: 1100px) {
 
-  .total-price{    
-  position: absolute;
-  top: 31vw;
-  right: 14vw;
-  font-size: 1.8em;
+  .total-price {
+    top: 34vw;
+    right: 12vw;
+    font-size: 2vw;
+  }
+
+  .maxMintable {
+    right: 18vw;
   }
 
 }
 
+
+@media (max-width: 900px) {
+
+  .total-price {
+    top: 35vw;
+  }
+
+  .mint {
+    top: 38vw;
+  }
+
+  .maxMintable {
+    right: 17vw;
+  }
+
+}
 
 @media (max-width: 767px) {
-
- 
-  
 
   .mint-amount {
     font-size: 2rem;
@@ -417,27 +408,28 @@ background-size: cover; */
   .btn-container .count img {
     max-width: 100%;
     width: 70%;
-    max-height: 80%; }
+    max-height: 80%;
+  }
 
-    .btn-container .count .no {
-      position: absolute;
-      z-index: 2;
-      top: 1vw;
-      text-align: center;
-      font-size: 2vw;
-      color: #fff;
-      user-select: none;
-      font-family: Megusto;
-      left: 12%;
-    }
-   
+  .btn-container .count .no {
+    position: absolute;
+    z-index: 2;
+    top: 1vw;
+    text-align: center;
+    font-size: 2vw;
+    color: #fff;
+    user-select: none;
+    font-family: Megusto;
+    left: 12%;
+  }
+
   .btn-container .text {
     font-family: Megusto;
     font-size: 1.2vw;
     color: yellow;
     user-select: none;
   }
-      
+
   .m-token {
     display: block;
     width: 80%;
@@ -462,38 +454,39 @@ background-size: cover; */
 
   }
 
-  .maxMintable{
+  .maxMintable {
     top: unset;
     bottom: 48vw;
     left: 0;
     right: 0;
     width: 25vw;
     font-size: 0.8em;
-    
-  
+
+
   }
 
-  .mint-amt{
+  .mint-amt {
     top: unset;
-    bottom: 67vw;
+    bottom: 70vw;
     z-index: 3;
-    left: 0;
+    left: 25px;
     right: 0;
     width: 28vw;
     margin: auto;
   }
 
-  .total-price{    
+  .total-price {
     top: unset;
-    bottom: 64vw;
+    bottom: 65vw;
     z-index: 3;
-    left: 0;
+    left: 18%;
     right: 0;
-    width: 28vw;
+    width: 40vw;
     margin: auto;
-    
-    }
-  
+    font-size: 1.5em;
+
+  }
+
 
   .wallet {
     position: absolute;
@@ -515,12 +508,12 @@ background-size: cover; */
 
   .btn-opensea {
     position: absolute;
-    width:10vw;
+    width: 10vw;
     margin: auto;
     left: 53%;
     top: 12.6%;
     cursor: pointer !important;
-  
+
   }
 
   .mintWithCard {
@@ -536,10 +529,12 @@ background-size: cover; */
 @media (max-width: 650px) {
 
 
-  .total-price{    
-    font-size: 1.3em;
-    
-    }
+  .total-price {
+    font-size: 1.5em;
+    width: 40vw;
+    left: 65px;
+
+  }
 
 }
 
@@ -549,7 +544,14 @@ background-size: cover; */
     background-image: none;
   }
 
-  .maxMintable{
+  .mint-amt {
+    bottom: 68vw;
+  }
+  .total-price {
+    font-size: 1.3em;
+  }
+
+  .maxMintable {
     font-size: 0.6em;
   }
 }
@@ -575,42 +577,42 @@ background-size: cover; */
   .mint {
     top: unset;
     bottom: 63vw;
-    left: 6%;
+    left: 7%;
     width: 30vw;
     margin: auto;
 
   }
 
-  .maxMintable{
+  .maxMintable {
     top: unset;
-    bottom: 59vw;
-    left: 0;
+    bottom: 58vw;
+    left: 6%;
     right: 0;
     width: 25vw;
     font-size: 0.5em;
-    
-  
+
+
   }
 
 
   .mint-amt {
     top: unset;
-    bottom: 78vw;
-    left: 6%;
-    width: 34vw;
+    bottom: 82vw;
+    left: 10%;
+    width: 40vw;
     margin: auto;
 
   }
 
-  .total-price{    
+  .total-price {
     top: unset;
-    bottom: 76vw;
-    left: 6%;
-    width: 34vw;
+    bottom: 78vw;
+    left: 8%;
+    width: 38vw;
     margin: auto;
     font-size: 1.3em;
-    
-    }
+
+  }
 
   .wallet {
     position: absolute;
@@ -638,13 +640,13 @@ background-size: cover; */
     top: 10%;
   }
 
-   .btn-opensea {
-    width:11vw;
+  .btn-opensea {
+    width: 11vw;
     margin: auto;
     left: 54%;
     top: 13.3%;
     cursor: pointer !important;
-  
+
   }
 
   .mintWithCard {
@@ -671,20 +673,21 @@ background-size: cover; */
   .btn-container .count img {
     max-width: 100%;
     width: 70%;
-    max-height: 100%; }
+    max-height: 100%;
+  }
 
-    .btn-container .count .no {
-      position: absolute;
-      z-index: 2;
-      top: 2vw;
-      text-align: center;
-      font-size: 4vw;
-      color: #fff;
-      user-select: none;
-      font-family: Megusto;
-      left: -15px;
-    }
-    
+  .btn-container .count .no {
+    position: absolute;
+    z-index: 2;
+    top: 2vw;
+    text-align: center;
+    font-size: 4vw;
+    color: #fff;
+    user-select: none;
+    font-family: Megusto;
+    left: -15px;
+  }
+
 
 
   .btn-container .text {
@@ -712,44 +715,28 @@ background-size: cover; */
     height: 100%;
   }
 
-  .mint{
-    bottom: 55vw;
+  .mint {
+    bottom: 60vw;
   }
-  .total-price{    
-    
-    bottom: 68vw;   
-    font-size: 1em;
-    
-    }
 
-  .maxMintable{
-    bottom: 56vw;    
+  .total-price {
+    bottom: 74vw;
+    font-size: 1.3em;
+    width: 45vw;
+    left: 60px;
+}
+
+  .maxMintable {
+    bottom: 56vw;
     font-size: 0.5em;
-    
-  
   }
 
-
-  .mint-amt{
-    bottom: 71vw;
-  }
-  
-}
-
-@media (max-width: 420px) {
-
-  
-
-  .m-token img {
-    margin-top: 8px;
-    margin-left: 16px;
-    max-width: 92%;
-    max-height: 96%;
-    width: 100%;
-
+  .mint-amt {
+    bottom: 80vw;
   }
 
 }
+
 
 @media (max-width: 380px) {
 
@@ -758,10 +745,26 @@ background-size: cover; */
     margin-bottom: 0px;
   }
 
-  .maxMintable{
-    bottom: 56vw;    
+  .mint {
+    bottom: 60vw;
+}
+
+  .maxMintable {
+    bottom: 56vw;
     font-size: 0.5em;
-    width: 80vw;  
-  
+    width: 80vw;
+
   }
+
+  .total-price {
+    font-size: 1.2em;}
+}
+
+@media (max-width: 320px) {
+
+.total-price {
+  bottom: 74vw;
+  font-size: 1em;
+  width: 50vw;
+}
 }
