@@ -15,34 +15,6 @@ body {
   font-family: "poppins";
 }
 
-
-
-
-
-.flexContainer {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  vertical-align: middle;
-  margin: 20px auto;
-  width: 80%;
-}
-
-.flexItems {
-  width: 10%;
-}
-
-.flexItems>a>img {
-  width: 100%;
-}
-
-
-@media only screen and (max-width: 600px) {
-  .flexItems {
-    width: 15%;
-  }
-}
-
 .overlay {
   background: #222222;
   height: 100%;
@@ -59,16 +31,6 @@ body {
 }
 
 
-.paper-text {
-  color: #fbd402;
-  -webkit-text-stroke: 0.3px #37465d;
-  -webkit-text-fill-color: #fbd402;
-  font-size: 2em;
-  text-align: center;
-  font-weight: 900;
-
-}
-
 .mint-amount {
 
   font-weight: bold;
@@ -78,14 +40,7 @@ body {
   text-shadow: 2px 2px #37465d;
 }
 
-.mint-available {
-  font-size: 3rem;
-  color: #3cc4f0;
-  font-weight: 900;
-  -webkit-text-stroke: 2px #37465d;
-  text-shadow: 3px 3px #37465d;
 
-}
 
 .overlay-status {
 
@@ -121,9 +76,22 @@ body {
   width: 22vw;
   margin: auto;
   left: 17%;
-  top: 21%;
+  top: 18%;
   cursor: pointer;
 }
+
+.supply {
+  position: absolute;
+  width: 22vw;
+  margin: auto;
+  left: 17%;
+  top: 29%;  
+  font-family: 'Rubric';
+  font-size: 2em;
+  color: #fff;
+  text-align: center;
+}
+
 
 .phases {
   position: absolute;
@@ -296,6 +264,10 @@ background-size: cover; */
 
 @media (max-width: 1420px) {
 
+  .supply{
+    font-size: 1.8em;
+  }
+
   .total-price {
     top: 33vw;
     right: 11vw;
@@ -321,6 +293,10 @@ background-size: cover; */
     font-size: 2vw;
   }
 
+  .supply{
+    font-size: 1.4em;
+  }
+
 }
 
 
@@ -332,10 +308,16 @@ background-size: cover; */
     font-size: 2vw;
   }
 
+  .supply {
+    top: 29%;
+    font-size: 1.2rem !important;
+}
+
   .maxMintable {
     right: 18vw;
   }
 
+ 
 }
 
 
@@ -352,6 +334,10 @@ background-size: cover; */
   .maxMintable {
     right: 17vw;
   }
+
+  .supply {
+    font-size: 1rem !important;
+}
 
 }
 
@@ -450,8 +436,6 @@ background-size: cover; */
     right: 0;
     width: 25vw;
     margin: auto;
-
-
   }
 
   .maxMintable {
@@ -461,8 +445,6 @@ background-size: cover; */
     right: 0;
     width: 25vw;
     font-size: 0.8em;
-
-
   }
 
   .mint-amt {
@@ -496,6 +478,14 @@ background-size: cover; */
     top: 2%;
   }
 
+  .supply {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    top: 7%;  
+    font-size: 1.6em !important;
+    width: 100%;
+  }
 
   .phases {
     position: absolute;
@@ -534,6 +524,10 @@ background-size: cover; */
     width: 40vw;
     left: 65px;
 
+  }
+
+  .supply{
+    font-size: 1.3em !important;
   }
 
 }
