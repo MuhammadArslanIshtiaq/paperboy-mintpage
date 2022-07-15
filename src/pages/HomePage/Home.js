@@ -83,6 +83,16 @@ function Home() {
     SHOW_BACKGROUND: false,
   });
 
+  let countDownDate = new Date("2022-07-15T18:00:00-0800");
+
+  let now = new Date().getTime();
+  let timeleft = countDownDate - now;
+
+  const [days, setDays] = useState();
+  const [hours, setHour] = useState();
+  const [minutes, setMint] = useState();
+  const [seconds, setSec] = useState();
+
   const claimNFTs = async () => {
     let cost = nftCost;
     cost = Web3.utils.toWei(String(cost), "ether");
@@ -245,6 +255,19 @@ function Home() {
     getData();
   }, [blockchain.account]);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDays(Math.floor(timeleft / (1000 * 60 * 60 * 24)));
+      setHour(
+        Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+      );
+      setMint(Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60)));
+      setSec(Math.floor((timeleft % (1000 * 60)) / 1000));
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [days, hours, minutes, seconds]);
+
   return (
     <>
       {loading && <Loader />}
@@ -269,6 +292,18 @@ function Home() {
         <div className="main">
           <img src={Connectwallet} className="wallet" />
           <img src={phase1} className="phases" />
+          {/* timer hide code */}
+          {days >= 0 && hours >= 0 && minutes >= 0 && seconds >= 0 && (
+            <div className="timer-container">
+              <BtnContainer
+                countH={days * 24 + hours <= 0 ? "00" : days * 24 + hours}
+                text="LAUNCH IN"
+                countM={minutes <= 0 ? "00" : minutes}
+                countS={seconds < 0 ? "00" : seconds}
+              />
+            </div>
+          )}
+
           <img src={mintWithCard} className="mintWithCard" />
 
           <div className="token">
@@ -430,5 +465,19 @@ function Home() {
     </>
   );
 }
+
+const BtnContainer = ({ countH, countM, countS, text }) => {
+  return (
+    <div className="btn-container">
+      <div className="count">
+        <img src={btn} alt="" />
+        <div className="no">
+          <div className="text">{text}</div>
+          {countH}:{countM}:{countS}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Home;

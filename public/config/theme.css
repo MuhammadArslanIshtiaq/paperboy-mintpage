@@ -175,7 +175,7 @@ body {
   margin: auto;
   left: 17%;
   top: 35%;
-  cursor: pointer;
+  cursor: default !important;
 }
 
 .mintWithCard
@@ -184,7 +184,7 @@ body {
   width: 25vw;
   margin: auto;
   left: 15%;
-  top: 60%;
+  top: 65%;
   cursor: pointer;
 }
 
@@ -218,11 +218,8 @@ background-size: cover; */
 .timer-container {
   position: absolute;
   z-index: 4;
-  top: 20vw;
-  left: 5vw;
-
-  display: flex;
-  align-items: center;
+  left: 20%;
+  top: 52%;
 }
 
 .btn-container {
@@ -233,15 +230,17 @@ background-size: cover; */
 }
 
 .btn-container .count {
-  margin-left: 3vw;
+  margin-left: 1vw;
   position: relative;
-  width: 11vw;
+  width: 20vw;
+  height: 10vw;
 }
 
 .btn-container .count img {
   max-width: 100%;
-  width: 100%;
+  width: 60%;
   user-select: none;
+  max-height:60%;
 }
 
 .btn-container .count .no {
@@ -249,18 +248,17 @@ background-size: cover; */
   z-index: 2;
   top: 1vw;
   left: 0;
-  right: 0;
+  right: 8vw;
   text-align: center;
-  font-size: 5vw;
+  font-size: 2vw;
   color: #fff;
   user-select: none;
   font-family: Megusto;
 }
 
 .btn-container .text {
-  margin-left: 2.5vw;
   font-family: Megusto;
-  font-size: 2vw;
+  font-size: 1vw;
   color: yellow;
   user-select: none;
 }
@@ -324,13 +322,10 @@ background-size: cover; */
   }
 
   .timer-container {
-    position: relative;
-    z-index: 4;
-    top: 12vw;
-    left: 0;
-    display: flex;
-    align-items: center;
+    display:none;
   }
+
+  
 
   .btn-container .count {
     margin-left: 6vw;
@@ -391,6 +386,7 @@ background-size: cover; */
     margin: auto;
     left: 30%;
     top: 10%;
+    cursor: none !important;
   }
 
   .mintWithCard
@@ -460,9 +456,7 @@ background-size: cover; */
 
   .phases
   {
-    position: absolute;
     width: 60vw;
-    margin: auto;
     left: 20%;
     top: 10%;
   }
