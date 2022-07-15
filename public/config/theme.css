@@ -355,7 +355,7 @@ background-size: cover; */
     display: block;
     width: 80%;
     min-height: 100%;
-    margin-top: 10em;
+    margin-top: 20em;
   }
 
   .m-token img {
@@ -382,6 +382,7 @@ background-size: cover; */
     left: 67%;
     top: 2%;
   }
+  
 
   .phases
   {
@@ -390,6 +391,15 @@ background-size: cover; */
     margin: auto;
     left: 30%;
     top: 10%;
+  }
+
+  .mintWithCard
+  {
+    position: absolute;
+    width: 50vw;
+    margin: auto;
+    left: 25%;
+    top: 23%;
   }
 }
 
@@ -416,6 +426,7 @@ background-size: cover; */
 
   .m-token {
     width: 100%;
+    margin-top: 18em;
   }
 
   .mint {
@@ -445,6 +456,22 @@ background-size: cover; */
   .main
   {
     background-image: none;
+  }
+
+  .phases
+  {
+    position: absolute;
+    width: 60vw;
+    margin: auto;
+    left: 20%;
+    top: 10%;
+  }
+
+  .mintWithCard
+  {
+    width: 70vw;
+    left: 15%;
+    top: 28%;
   }
 }
 
