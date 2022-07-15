@@ -413,7 +413,6 @@ function Home() {
               collectionTitle="PaperBoyz NFT"
               collectionDescription="PaperBoyz NFT"
               collectionPhoto=""
-              disabled={state == 0 ? 0 : 1}
               className="mintWithCard"
               environment="staging"
               clientId="3c702861-ebfc-4a7e-84d8-42640823676f"
