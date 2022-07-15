@@ -276,10 +276,18 @@ background-size: cover; */
   float: right;
 }
 
+.mint-amt{
+  position: absolute;
+  z-index: 3;
+  top: 27vw;
+  right: 15vw;
+  width: 20vw;
+}
+
 .mint {
   position: absolute;
   z-index: 3;
-  top: 29vw;
+  top: 32vw;
   right: 15vw;
   width: 20vw;
   cursor: pointer;
@@ -382,13 +390,23 @@ background-size: cover; */
 
   .mint {
     top: unset;
-    bottom: 59vw;
+    bottom: 50vw;
     left: 0;
     right: 0;
     width: 25vw;
     margin: auto;
 
 
+  }
+
+  .mint-amt{
+    top: unset;
+    bottom: 60vw;
+    z-index: 3;
+    left: 0;
+    right: 0;
+    width: 20vw;
+    margin: auto;
   }
 
   .wallet {
@@ -446,9 +464,17 @@ background-size: cover; */
 
   .mint {
     top: unset;
+    bottom: 60vw;
+    left: 6%;
+    width: 30vw;
+    margin: auto;
+
+  }
+
+  .mint-amt {
+    top: unset;
     bottom: 70vw;
-    left: 0;
-    right: -3px;
+    left: 6%;
     width: 30vw;
     margin: auto;
 
@@ -545,6 +571,13 @@ background-size: cover; */
     height: 100%;
   }
 
+  .mint{
+    bottom: 57vw;
+  }
+
+  .mint-amt{
+    bottom: 67vw;
+  }
   
 }
 

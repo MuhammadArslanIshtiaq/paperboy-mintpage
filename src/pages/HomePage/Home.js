@@ -314,6 +314,40 @@ function Home() {
             <img src={mtoken} alt="" />
           </div>
 
+          <div className="mint-amt">
+            <s.AmountContainer
+              ai={"center"}
+              jc={"center"}
+              fd={"row"}
+              style={{ paddingRight: "25px" }}
+            >
+              <s.StyledRoundButton
+                style={{ lineHeight: 0.4 }}
+                disabled={claimingNft ? 1 : 0}
+                onClick={(e) => {
+                  e.preventDefault();
+                  decrementMintAmount();
+                }}
+              >
+                -
+              </s.StyledRoundButton>
+              <s.SpacerMedium />
+              <s.TextDescription>
+                <span className="mint-amount">{mintAmount}</span>
+              </s.TextDescription>
+              <s.SpacerMedium />
+              <s.StyledRoundButton
+                disabled={claimingNft ? 1 : 0}
+                onClick={(e) => {
+                  e.preventDefault();
+                  incrementMintAmount();
+                }}
+              >
+                +
+              </s.StyledRoundButton>
+            </s.AmountContainer>
+          </div>
+
           <a>
             <img src={mint} alt="" className="mint" />
           </a>
