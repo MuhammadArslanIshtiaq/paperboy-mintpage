@@ -423,12 +423,11 @@ function Home() {
             </div>
           )}
 
-          {days <= 0 && hours <= 0 && minutes <= 0 && seconds <= 0 && (
+          {state == 3 && (
             <CrossmintPayButton
               collectionTitle="PaperBoyz NFT"
               collectionDescription="PaperBoyz NFT"
               collectionPhoto=""
-              disabled={state == 0 ? 0 : 1}
               className="mintWithCard"
               environment="staging"
               clientId="3c702861-ebfc-4a7e-84d8-42640823676f"
