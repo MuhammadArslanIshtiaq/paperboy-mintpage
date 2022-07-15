@@ -8,6 +8,19 @@ import earlyAccessAddresses from "../walletAddressesEarlyAccess";
 import Loader from "../../components/Loader/loader";
 // Add this import line at the top
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
+
+import bg from "../../assests/images/bg.png";
+import mbg from "../../assests/images/m-bg.png";
+import paper from "../../assests/images/paper.png";
+import mpaper from "../../assests/images/m-paper.png";
+import token from "../../assests/images/token.png";
+import mtoken from "../../assests/images/m-token.png";
+import btn from "../../assests/images/btn.png";
+import mint from "../../assests/images/mint.png";
+import Connectwallet from "../../assests/images/Connect_Wallet.png";
+import phase1 from "../../assests/images/phase-01.png";
+import mintWithCard from "../../assests/images/btn-mintCard.png";
+
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
 const web3 = createAlchemyWeb3(
   "https://eth-rinkeby.alchemyapi.io/v2/pBY3syVarS-tO2ZAQlA3uWBq_OqzwIDw"
@@ -236,10 +249,44 @@ function Home() {
     <>
       {loading && <Loader />}
 
-      <div className="overlay-status">{statusAlert}</div>
+      <div className="root">
+        <div className="bg">
+          <img src={bg} alt="" />
+        </div>
+
+        <div className="m-bg">
+          <img src={mbg} alt="" />
+        </div>
+
+        <div className="paper">
+          <img src={paper} alt="" />
+        </div>
+
+        <div className="m-paper">
+          <img src={mpaper} alt="" />
+        </div>
+
+        <div className="main">
+          <img src={Connectwallet} className="wallet" />
+          <img src={phase1} className="phases" />
+          <img src={mintWithCard} className="mintWithCard" />
+
+          <div className="token">
+            <img src={token} alt="" />
+          </div>
+
+          <div className="m-token">
+            <img src={mtoken} alt="" />
+          </div>
+
+          <a>
+            <img src={mint} alt="" className="mint" />
+          </a>
+        </div>
+      </div>
 
       <s.FlexContainer jc={"center"} fd={"row"}>
-        <s.Mint>
+        <s.Mint style={{ display: "none" }}>
           <s.SpacerSmall />
           <s.SpacerSmall />
           <s.FlexContainer fd={"row"} ai={"center"} jc={"center"}>
