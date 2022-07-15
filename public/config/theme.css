@@ -245,11 +245,11 @@ background-size: cover; */
 .maxMintable {
   position: absolute;
   z-index: 3;
-  top: 42vw;
-  right: 21vw;
+  top: 41vw;
+  right: 20vw;
   margin: auto;
   color: #000;
-  font-size: 14px;
+  font-size: 1.4em;
   text-align: center;
   font-family: 'Rubric';
   font-weight: 700;
@@ -275,13 +275,14 @@ background-size: cover; */
   }
 
   .mint {
-    top: 37vw;
+    top: 36vw;
     right: 19vw;
   }
 
   .maxMintable {
-    top: 43vw;
+    top: 41vw;
     right: 20vw;
+    font-size: 1.2em;
   }
 }
 
@@ -295,6 +296,10 @@ background-size: cover; */
 
   .supply{
     font-size: 1.4em;
+  }
+
+  .maxMintable {
+    font-size: 1em;
   }
 
 }
@@ -313,9 +318,6 @@ background-size: cover; */
     font-size: 1.2rem !important;
 }
 
-  .maxMintable {
-    right: 18vw;
-  }
 
  
 }
@@ -327,12 +329,20 @@ background-size: cover; */
     top: 35vw;
   }
 
+  .mint-amt {
+    top: 25vw;
+  }
+
+  .total-price {
+    top: 32vw;}
+
+
   .mint {
-    top: 38vw;
+    top: 35vw;
   }
 
   .maxMintable {
-    right: 17vw;
+    right: 18vw;
   }
 
   .supply {
