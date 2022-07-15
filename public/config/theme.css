@@ -261,7 +261,7 @@ background-size: cover; */
   -webkit-text-stroke: 0.5px #37465d;
   text-shadow: 1px 1px #37465d;
   font-family: 'Rubric';
-  
+
 }
 
 .mint {
@@ -547,6 +547,7 @@ background-size: cover; */
   .mint-amt {
     bottom: 68vw;
   }
+
   .total-price {
     font-size: 1.3em;
   }
@@ -724,7 +725,7 @@ background-size: cover; */
     font-size: 1.3em;
     width: 45vw;
     left: 60px;
-}
+  }
 
   .maxMintable {
     bottom: 56vw;
@@ -747,7 +748,7 @@ background-size: cover; */
 
   .mint {
     bottom: 60vw;
-}
+  }
 
   .maxMintable {
     bottom: 56vw;
@@ -757,14 +758,15 @@ background-size: cover; */
   }
 
   .total-price {
-    font-size: 1.2em;}
+    font-size: 1.2em;
+  }
 }
 
 @media (max-width: 320px) {
 
-.total-price {
-  bottom: 74vw;
-  font-size: 1em;
-  width: 50vw;
-}
+  .total-price {
+    bottom: 74vw;
+    font-size: 1em;
+    width: 50vw;
+  }
 }
