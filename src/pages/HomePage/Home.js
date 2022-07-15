@@ -18,6 +18,7 @@ import mtoken from "../../assests/images/m-token.png";
 import btn from "../../assests/images/btn.png";
 import mint from "../../assests/images/mint.png";
 import Connectwallet from "../../assests/images/Connect_Wallet.png";
+import phase0 from "../../assests/images/phase-00.png";
 import phase1 from "../../assests/images/phase-01.png";
 import phase2 from "../../assests/images/phase-02.png";
 import phase3 from "../../assests/images/phase-03.png";
@@ -333,7 +334,6 @@ function Home() {
            ? (
 
           <img src={Connectwallet} className="wallet" 
-          disabled={state == 0 ? 1 : 0}
           onClick={(e) => {
             e.preventDefault();
             dispatch(connectWallet());
@@ -353,6 +353,14 @@ function Home() {
           }
 
           {/* phases based on state */}
+          {state == 0 ? (
+            <>
+              <img src={phase0} className="phases" />
+              <a href="https://opensea.io/collection/nftmagpass" target="blank">
+                <img src={btnOpenSea} className="btn-opensea" />
+              </a>
+            </>
+          ) : ""}
           {state == 1 ? (
             <>
               <img src={phase1} className="phases" />
@@ -365,12 +373,18 @@ function Home() {
           {state == 2 ? (
             <>
               <img src={phase2} className="phases" />
+              <a href="https://opensea.io/collection/nftmagpass" target="blank">
+                <img src={btnOpenSea} className="btn-opensea" />
+              </a>
             </>
           ) : ""}
 
           {state == 3 ? (
             <>
               <img src={phase3} className="phases" />
+              <a href="https://opensea.io/collection/nftmagpass" target="blank">
+                <img src={btnOpenSea} className="btn-opensea" />
+              </a>
             </>
           ) : ""}
 
@@ -389,9 +403,10 @@ function Home() {
               collectionTitle="PaperBoyz NFT"
               collectionDescription="PaperBoyz NFT"
               collectionPhoto=""
+              disabled= {state == 0 ? 0 : 1}
               className="mintWithCard"
               environment="staging" 
-              clientId="124d14a0-077d-4e74-b12d-d9525b75d946"
+              clientId="3c702861-ebfc-4a7e-84d8-42640823676f"
               mintConfig={{"_mintAmount": mintAmount, "totalPrice": displayCost}}                        
             />
           {/* <img src={mintWithCard} className="mintWithCard" /> */}
