@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Megusto';
+  src: local('Megusto'), url(./Megusto.otf) format('otf');
+}
+
 :root {
   --primary: #f7f7f7 !important;
   --primary-text: #1a1a1a;
@@ -153,6 +158,7 @@ background-size: cover; */
   z-index: 4;
   left: 20%;
   top: 52%;
+  font-family: 'Megusto';
 
 }
 
@@ -167,7 +173,8 @@ background-size: cover; */
   margin-left: 1vw;
   position: relative;
   width: 20vw;
-  height: 10vw;
+  height: 10vw;  
+  font-family: 'Megusto';
 }
 
 .btn-container .count img {
@@ -186,8 +193,8 @@ background-size: cover; */
   text-align: center;
   font-size: 2vw;
   color: #fff;
-  user-select: none;
-  font-family: Megusto;
+  user-select: none;  
+  font-family: 'Megusto';
 }
 
 .btn-container .text {
