@@ -1,8 +1,3 @@
-@font-face {
-  font-family: 'Megusto';
-  src: local('Megusto'), url(./Megusto.otf) format('otf');
-}
-
 :root {
   --primary: #f7f7f7 !important;
   --primary-text: #1a1a1a;
