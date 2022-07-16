@@ -80,6 +80,19 @@ body {
   cursor: pointer;
 }
 
+
+.walletMsg {
+  position: absolute;
+  width: 22vw;
+  margin: auto;
+  left: 17%;
+  top: 18%;
+  padding: 10px;
+  z-index:199;
+  font-size: 1.5em;
+}
+
+
 .supply {
   position: absolute;
   width: 22vw;
@@ -90,6 +103,7 @@ body {
   font-size: 2em;
   color: #fff;
   text-align: center;
+  z-index: 99;
 }
 
 
@@ -304,6 +318,12 @@ background-size: cover; */
     font-size: 1em;
   }
 
+  .walletMsg {
+    width: 30vw;
+    left: 14%;
+    top: 13%;
+  }
+
 }
 
 
@@ -351,9 +371,21 @@ background-size: cover; */
     font-size: 1rem !important;
 }
 
+.walletMsg {
+  width: 35vw;
+  left: 11%;
+}
+
 }
 
 @media (max-width: 767px) {
+
+  .walletMsg {
+    width: 50vw;
+    left: 25%;
+    top: 1%;
+    font-size: 1.3em;
+}
 
   .mint-amount {
     font-size: 2rem;
@@ -561,9 +593,21 @@ background-size: cover; */
   .maxMintable {
     font-size: 0.6em;
   }
+
+  .walletMsg{
+    width: 70vw;
+    left: 18%;
+    font-size: 1em;
+  }
 }
 
 @media (max-width: 440px) {
+
+  .walletMsg {
+    width: 80vw;
+    left: 12%;
+    font-size: 0.8em;
+}
 
   .m-paper,
   .m-bg {

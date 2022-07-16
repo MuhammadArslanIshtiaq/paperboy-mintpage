@@ -349,13 +349,12 @@ function Home() {
           ) : (
             <>
               <button
-                className="wallet"
+                className="walletMsg"
                 style={{
                   backgroundColor: "#ff0000",
                   border: "none",
                   color: "#fff",
                   borderRadius: "17px",
-                  fontSize: "1.5rem",
                   fontFamily: "Rubric",
                 }}
               >
