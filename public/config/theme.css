@@ -292,6 +292,14 @@ background-size: cover; */
 
   }
 
+  .mint-amt {
+    top: 26vw;
+  }
+
+  .mint-amount {
+    font-size: 4rem;
+  }
+
 }
 
 
@@ -305,6 +313,11 @@ background-size: cover; */
     right: 22vw;
 
   }
+
+
+  .mint-amount {
+    font-size: 5rem;
+  }
   }
 
   @media (min-width: 3680px) {
@@ -315,6 +328,9 @@ background-size: cover; */
     .maxMintable {
       right: 23vw;
   
+    }
+    .mint-amount {
+      font-size: 6rem;
     }
     }
   
