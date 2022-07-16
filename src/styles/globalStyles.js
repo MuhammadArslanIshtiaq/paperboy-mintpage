@@ -287,4 +287,14 @@ export const StyledRoundButton = styled.button`
     -moz-box-shadow: none;
     border: none;
   }
+
+  @media only screen and (min-width: 1920px) {
+    font-size: 6rem;
+  }
+  @media only screen and (min-width: 2740px) {
+    font-size: 8rem;
+  }
+  @media only screen and (min-width: 3660px) {
+    font-size: 10rem;
+  }
 `;

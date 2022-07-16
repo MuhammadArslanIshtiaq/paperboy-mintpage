@@ -279,12 +279,7 @@ background-size: cover; */
 }
 
 
-@media (min-width: 2780px) {
-.total-price {
-  right: 12vw;
-  font-size: 3.5em;
-}
-}
+
 
 @media (min-width: 1920px) {
   .total-price {
@@ -292,7 +287,37 @@ background-size: cover; */
     font-size: 3em;
   }
 
+  .maxMintable {
+    right: 21vw;
+
+  }
+
 }
+
+
+@media (min-width: 2780px) {
+  .total-price {
+    right: 12vw;
+    font-size: 3.5em;
+  }
+
+  .maxMintable {
+    right: 22vw;
+
+  }
+  }
+
+  @media (min-width: 3680px) {
+    .total-price {
+      font-size: 4em;
+    }
+
+    .maxMintable {
+      right: 23vw;
+  
+    }
+    }
+  
 
 @media (max-width: 1420px) {
 
