@@ -356,6 +356,7 @@ function Home() {
                   color: "#fff",
                   borderRadius: "17px",
                   fontSize: "1.5rem",
+                  fontFamily: "Rubric",
                 }}
               >
                 {feedback}
@@ -435,6 +436,21 @@ function Home() {
             />
           )}
           {/* <img src={mintWithCard} className="mintWithCard" /> */}
+
+          {state == 3 ? (
+            ""
+          ) : (
+            <div
+              className="mintWithCard"
+              style={{
+                color: "#ff0000",
+                fontSize: "25px",
+                fontFamily: "Rubric",
+              }}
+            >
+              Cannot Mint Using Credit Card Until Public Sale
+            </div>
+          )}
 
           <div className="token">
             <img src={token} alt="" />
