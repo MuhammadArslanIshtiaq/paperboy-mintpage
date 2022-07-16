@@ -415,7 +415,9 @@ function Home() {
           {days >= 0 && hours >= 0 && minutes >= 0 && seconds >= 0 && (
             <div className="timer-container">
               <BtnContainer
-                countH={days * 24 + hours <= 0 ? "00" : days * 24 + hours}
+                countH={
+                  days * 24 + hours <= 0 ? "00" : "0" + (days * 24 + hours)
+                }
                 text="LAUNCH IN"
                 countM={minutes <= 0 ? "00" : minutes}
                 countS={seconds < 0 ? "00" : seconds}

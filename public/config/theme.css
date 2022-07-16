@@ -820,3 +820,20 @@ background-size: cover; */
     width: 50vw;
   }
 }
+
+button.mintWithCard {
+  background-color: yellow;
+  color: #000;
+  border: 3px solid black;
+  border-radius: 15px;
+  box-shadow: 3px 6px;
+}
+
+button.mintWithCard span {
+  background-color: yellow;
+  color: #000;
+}
+
+button.mintWithCard img {
+  width: 0px !important;
+}
