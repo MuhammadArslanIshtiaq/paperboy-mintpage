@@ -278,6 +278,14 @@ background-size: cover; */
   display: none;
 }
 
+@media (min-width: 1920px) {
+  .total-price {
+    right: 11vw;
+    font-size: 3em;
+  }
+
+}
+
 @media (max-width: 1420px) {
 
   .supply{
