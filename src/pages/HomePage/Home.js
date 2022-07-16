@@ -27,7 +27,7 @@ import mintWithCard from "../../assests/images/btn-mintCard.png";
 
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
 const web3 = createAlchemyWeb3(
-  "https://eth-rinkeby.alchemyapi.io/v2/pBY3syVarS-tO2ZAQlA3uWBq_OqzwIDw"
+  "https://eth-mainnet.alchemyapi.io/v2/pBY3syVarS-tO2ZAQlA3uWBq_OqzwIDw"
 );
 var Web3 = require("web3");
 var Contract = require("web3-eth-contract");
@@ -236,7 +236,7 @@ function Home() {
     const abi = await abiResponse.json();
     var contract = new Contract(
       abi,
-      "0x725a9193E6fB1eE8FcfFe78a03a7d5009e2C3221"
+      "0x053b6492184e812d93d2c739d1ef918c012d93aa"
     );
     contract.setProvider(web3.currentProvider);
     // Get Total Supply
@@ -252,6 +252,7 @@ function Home() {
 
     if (currentState == 0) {
       setStatusAlert("MINT NOT LIVE YET!");
+      setFeedback("MINT NOT LIVE YET!");
       setDisable(true);
       setDisplayCost(0.0);
       setMax(0);
@@ -431,8 +432,7 @@ function Home() {
               collectionDescription="PaperBoyz NFT"
               collectionPhoto=""
               className="mintWithCard"
-              environment="staging"
-              clientId="3c702861-ebfc-4a7e-84d8-42640823676f"
+              clientId="967600f7-81af-43e3-b7e7-0739d68e292f"
               mintConfig={{ _mintAmount: mintAmount, totalPrice: displayCost }}
             />
           )}

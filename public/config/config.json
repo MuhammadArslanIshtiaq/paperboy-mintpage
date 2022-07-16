@@ -1,10 +1,10 @@
 {
-  "CONTRACT_ADDRESS": "0x725a9193E6fB1eE8FcfFe78a03a7d5009e2C3221",
+  "CONTRACT_ADDRESS": "0x053b6492184e812d93d2c739d1ef918c012d93aa",
   "SCAN_LINK": "https://etherscan.io/address/0x0770a317AF574fBa15F205A60bCA9075206ad0a8",
   "NETWORK": {
     "NAME": "Ethereum",
     "SYMBOL": "ETH",
-    "ID": 4
+    "ID": 1
   },
   "NETWORK_ID_WALLET": 4,
   "NFT_NAME": "PaperBoyz NFT",
